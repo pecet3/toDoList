@@ -2,12 +2,12 @@
     padding:0;
     list-style-type:none;
 }
-.list__text{
+.list__content{
     margin-top:0;
     margin-bottom:0;
     padding:5px;
 }
-.list__text--done{
+.list__content---toggleDone{
     text-decoration: line-through;
 }
 .list__element{
@@ -27,17 +27,17 @@
     padding:0px;
     font-size: 24px;
 }
-.list__button--done{
+.list__button---toggleDone{
     background-color: hsl(120, 96%, 30%);
     color:white;
     
 }
-.list__button--done:hover{
+.list__button---toggleDone:hover{
     background-color: hsl(120, 96%, 35%);
     cursor:pointer;
     
 }
-.list__button--done:active{
+.list__button---toggleDone:active{
     background-color: hsl(120, 96%, 40%);
 }
 

@@ -35,11 +35,11 @@
             htmlString += `
             <li 
             class="list__element">
-                <button class = "js-done button list__button list__button--done">
+                <button class = "js-done button list__button list__button--toggleDone">
                 ${task.done ? "✔" : ""}
                 </button>
                 <p 
-                class="list__text ${task.done ? "list__text--done\"" : "\""}>
+                class="list__content ${task.done ? "list__content--toggleDone\"" : "\""}>
                 ${task.content}
                 </p>
                 <button class = "js-remove button list__button list__button--remove">
