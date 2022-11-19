@@ -15,7 +15,7 @@
                 toggleTaskDone(index);
             });
         });
-    }
+    };
     const removeTask = (taskIndex) => {
         tasks.splice(taskIndex, 1);
         render();
@@ -43,12 +43,13 @@
 
         for (const task of tasks) {
             htmlString += `
-            <li class="list__element">
+            <li 
+            class="list__element">
                 <button class = "js-done button list__button list__button--done">
-                ${task.done ? "✔": ""}
+                ${task.done ? "✔" : ""}
                 </button>
-                <p class="list__text 
-                ${task.done ? "list__text--done\"" : " \""}>
+                <p 
+                class="list__text ${task.done ? "list__text--done\"" : "\""}>
                 ${task.content}
                 </p>
                 <button class = "js-remove button list__button list__button--remove">
@@ -70,30 +71,33 @@
 
         if (newTaskContent === "") {
             return;
-        }
+        };
 
         addNewTask(newTaskContent);
-    }
-
-    const resetInputField = (form) => {
-        return form.value = "";
+        resetInputField();
     };
+
+    const resetInputField = () => {
+        const inputContent = document.querySelector(".js-newTask");
+        inputContent.value = "";
+    };
+
     const addNewTask = (newTaskContent) => {
         tasks.push({
             content: newTaskContent,
             done: false,
         });
         render();
-    }
+    };
 
     const init = () => {
         render();
         const form = document.querySelector(".js-form");
-
-        resetInputField(form)
+        
         form.addEventListener("submit", onFormSubmit);
-    }
+    };
 
+   
     init();
 
 }
