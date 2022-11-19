@@ -30,8 +30,18 @@
     color:white;
     
 }
+.list__button--done:hover{
+    background-color: hsl(120, 96%, 20%);
+    cursor:pointer;
+    
+}
 
 .list__button--remove{
     background-color: rgb(222, 58, 58);
     color:white;
+}
+
+.list__button--remove:hover{
+    background-color: hsl(0, 71%, 48%);
+    cursor: pointer;
 }
