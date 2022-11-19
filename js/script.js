@@ -59,13 +59,13 @@
 
         const newTaskContent = document.querySelector(".js-newTask").value.trim();
 
-        if (newTaskContent === "") {
-            return;
+        if (newTaskContent !== "") {
+            addNewTask(newTaskContent);
+            resetInputField(inputContent);
         };
 
-        addNewTask(newTaskContent);
+        
         const inputContent = document.querySelector(".js-newTask");
-        resetInputField(inputContent);
         focusOnInputField(inputContent);
     };
 
