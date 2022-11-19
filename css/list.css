@@ -24,6 +24,7 @@
     height: 30px;
     border: none;
     padding:0px;
+    font-size: 27px;
 }
 .list__button--done{
     background-color: hsl(120, 96%, 30%);
@@ -31,9 +32,12 @@
     
 }
 .list__button--done:hover{
-    background-color: hsl(120, 96%, 34%);
+    background-color: hsl(120, 96%, 35%);
     cursor:pointer;
     
+}
+.list__button--done:focus{
+    background-color: hsl(120, 96%, 40%);
 }
 
 .list__button--remove{
@@ -44,4 +48,8 @@
 .list__button--remove:hover{
     background-color: hsl(0, 71%, 60%);
     cursor: pointer;
+}
+
+.list__button--remove:focus{
+    background-color: hsl(0, 71%, 65%);
 }
