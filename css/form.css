@@ -1,7 +1,7 @@
 .form{
     
     display:grid;
-    grid-template-columns: 600px 1fr;
+    grid-template-columns: 1fr auto;
     gap: 20px;
 
 }
