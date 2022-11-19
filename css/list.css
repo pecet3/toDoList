@@ -15,7 +15,7 @@
     display:grid;
     grid-template-columns: 30px 1fr 30px;
     padding:5px;
-    font-size: 17px;
+    font-size: 18px;
     align-items: center;
 }
 
@@ -24,7 +24,7 @@
     height: 30px;
     border: none;
     padding:0px;
-    font-size: 27px;
+    font-size: 24px;
 }
 .list__button--done{
     background-color: hsl(120, 96%, 30%);
