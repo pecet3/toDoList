@@ -7,7 +7,7 @@
     margin-bottom:0;
     padding:5px;
 }
-.list__content---toggleDone{
+.list__content--toggleDone{
     text-decoration: line-through;
 }
 .list__element{
@@ -27,17 +27,17 @@
     padding:0px;
     font-size: 24px;
 }
-.list__button---toggleDone{
+.list__button--toggleDone{
     background-color: hsl(120, 96%, 30%);
     color:white;
     
 }
-.list__button---toggleDone:hover{
+.list__button--toggleDone:hover{
     background-color: hsl(120, 96%, 35%);
     cursor:pointer;
     
 }
-.list__button---toggleDone:active{
+.list__button--toggleDone:active{
     background-color: hsl(120, 96%, 40%);
 }
 
