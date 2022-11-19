@@ -74,14 +74,18 @@
         };
 
         addNewTask(newTaskContent);
-        resetInputField();
+        const inputContent = document.querySelector(".js-newTask");
+        resetInputField(inputContent);
+        focusOnInputField(inputContent);
     };
 
-    const resetInputField = () => {
-        const inputContent = document.querySelector(".js-newTask");
+    const resetInputField = (inputContent) => {
         inputContent.value = "";
     };
 
+    const focusOnInputField = (inputContent) => {
+        inputContent.focus();
+    };
     const addNewTask = (newTaskContent) => {
         tasks.push({
             content: newTaskContent,
@@ -93,7 +97,6 @@
     const init = () => {
         render();
         const form = document.querySelector(".js-form");
-        
         form.addEventListener("submit", onFormSubmit);
     };
 
