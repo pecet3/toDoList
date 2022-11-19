@@ -9,23 +9,38 @@
     <link rel="stylesheet" href="css/container.css">
     <link rel="stylesheet" href="css/form.css">
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/list.css">
     <script defer src="/js/script.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+        integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>toDoList</title>
 </head>
 
 <body class="body">
+    <header class="header">
+        <h1>Lista zadań</h1>
+    </header>
     <main class="main">
-    <div class="container">
-    <form class="form js-form">
-        <input class="form__input js-newTask" placeholder="Co jest do zrobienia?" >
-        <button class="js-button">Dodaj zadanie</button>
-    </form>
-
-    <ul class="js-tasks"></ul>
-    </div>
+        <div class="container">
+            <div class="container__header">
+                <h2 class="container__headerText">Dodaj nowe zadanie</h2>
+            </div>
+            <form class="form js-form">
+                <input class="form__input js-newTask" placeholder="Co jest do zrobienia?">
+                <button class="js-button">Dodaj zadanie</button>
+            </form>
+        </div>
+        <div class="container">
+            <div class="container__header">
+                <h2 class="container__headerText">Do zrobienia</h2>
+            </div>
+            <ul class="js-tasks list"></ul>
+        </div>
     </main>
 </body>
 
