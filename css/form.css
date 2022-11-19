@@ -1,5 +1,5 @@
 .form{
-    padding:15px;
+    
     display:grid;
     grid-template-columns: 600px 1fr;
     gap: 20px;
