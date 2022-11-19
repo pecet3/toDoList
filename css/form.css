@@ -1,3 +1,25 @@
 .form{
     padding:15px;
+    display:grid;
+    grid-template-columns: 600px 1fr;
+    gap: 20px;
+
+}
+.form__input{
+    padding: 8px;
+}
+
+.form__button{
+    background-color: teal;
+    color:white;
+    font-weight: 200;
+    border:none;
+    flex-grow: 1;
+}
+
+@media (max-width: 767px){
+    .form{
+        grid-template-rows: 1fr 1fr ;
+        grid-template-columns: 1fr;
+    }
 }
