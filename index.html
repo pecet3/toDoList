@@ -5,20 +5,28 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="/css/grid.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/container.css">
+    <link rel="stylesheet" href="css/form.css">
+    <link rel="stylesheet" href="css/main.css">
     <script defer src="/js/script.js"></script>
-    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    <title>toDoList</title>
 </head>
 
 <body class="body">
-    <form class="js-form">
-        <input class="js-newTask">
+    <main class="main">
+    <div class="container">
+    <form class="form js-form">
+        <input class="form__input js-newTask" placeholder="Co jest do zrobienia?" >
         <button class="js-button">Dodaj zadanie</button>
     </form>
 
     <ul class="js-tasks"></ul>
-
+    </div>
+    </main>
 </body>
 
 </html>
