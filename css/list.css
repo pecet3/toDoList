@@ -37,7 +37,7 @@
     cursor:pointer;
     
 }
-.list__button--done:focus{
+.list__button--done:active{
     background-color: hsl(120, 96%, 40%);
 }
 
@@ -51,6 +51,6 @@
     cursor: pointer;
 }
 
-.list__button--remove:focus{
+.list__button--remove:active{
     background-color: hsl(0, 71%, 65%);
 }
