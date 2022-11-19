@@ -24,7 +24,6 @@
 
 @media (max-width: 767px){
     .form{
-        grid-template-rows: 1fr 1fr ;
         grid-template-columns: 1fr;
     }
 }
