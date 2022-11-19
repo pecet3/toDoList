@@ -17,6 +17,11 @@
     flex-grow: 1;
 }
 
+.form__button:hover{
+    cursor:pointer;
+    background-color: hsl(180, 100%, 20%);
+}
+
 @media (max-width: 767px){
     .form{
         grid-template-rows: 1fr 1fr ;
