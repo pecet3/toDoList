@@ -26,17 +26,7 @@
         render();
     };
 
-    const tasks = [
-        {
-            content: "uczyć się",
-            done: false,
-        },
-        {
-            content: "odpocząć",
-            done: true,
-        },
-
-    ];
+    const tasks = [];
 
     const render = () => {
         let htmlString = "";
@@ -86,6 +76,7 @@
     const focusOnInputField = (inputContent) => {
         inputContent.focus();
     };
+
     const addNewTask = (newTaskContent) => {
         tasks.push({
             content: newTaskContent,
