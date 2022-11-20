@@ -56,16 +56,12 @@
     };
     const onFormSubmit = (event) => {
         event.preventDefault();
-
         const newTaskContent = document.querySelector(".js-newTask").value.trim();
-
+        const inputContent = document.querySelector(".js-newTask");
         if (newTaskContent !== "") {
             addNewTask(newTaskContent);
             resetInputField(inputContent);
         };
-
-        
-        const inputContent = document.querySelector(".js-newTask");
         focusOnInputField(inputContent);
     };
 
