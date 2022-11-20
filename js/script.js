@@ -39,7 +39,7 @@
                 ${task.done ? "✔" : ""}
                 </button>
                 <p 
-                class="list__content ${task.done ? "list__content--done\"" : "\""}>
+                class="list__content ${task.done ? "list__content--done" : ""}">
                 ${task.content}
                 </p>
                 <button class = "js-remove button list__button list__button--remove">
@@ -61,7 +61,7 @@
         if (newTaskContent !== "") {
             addNewTask(newTaskContent);
             resetInputField(inputContent);
-        };
+        }
         focusOnInputField(inputContent);
     };
 
