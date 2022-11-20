@@ -5,7 +5,7 @@
 .list__content{
     margin-top:0;
     margin-bottom:0;
-    padding:5px;
+    font-size: 18px;
 }
 .list__content--done{
     text-decoration: line-through;
@@ -16,8 +16,8 @@
     grid-template-columns: auto 1fr auto;
     padding-bottom:5px;
     padding-top:5px;
-    font-size: 18px;
     align-items: center;
+    grid-gap:10px;
 }
 
 .list__button{
