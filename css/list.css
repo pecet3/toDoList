@@ -25,7 +25,7 @@
     height: 30px;
     border: none;
     padding:0px;
-    font-size: 24px;
+    font-size: 20px;
 }
 .list__button--toggleDone{
     background-color: hsl(120, 96%, 30%);
