@@ -36,12 +36,11 @@
             ...tasks.slice(taskIndex + 1),
 
         ];
-        // tasks[taskIndex].done = !tasks[taskIndex].done;
         render();
     };
 
     let tasks = [];
-    let hiddeDoneButtons = false;
+    let hideDoneTasks = false;
 
     const renderTasks = () => {
         let htmlString = "";
@@ -80,8 +79,20 @@
         ];
         render();
     };
- 
+    const renderButtons = () => {
+      let doneButtonsHtml ="";
+      
+      if(tasks.length !== 0) {
+        doneButtonsHtml = `
+        <button>Ukryj Ukończone</button>
+        <button>Ukończ Wszystkie</button>`
+      };
+
+      document.querySelector(".js-doneButtons").innerHTML = doneButtonsHtml;
+
+    };
     const render = () => {
+        renderButtons();
         renderTasks();
         bindEventsRemove();
         bindEventsToggle();
