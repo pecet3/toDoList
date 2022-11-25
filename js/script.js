@@ -81,11 +81,16 @@
     };
     const renderButtons = () => {
       let doneButtonsHtml ="";
-      
+      let isAnyDone = tasks.some(({done})=> done);
+      let isAllDone = tasks.every(({done}) => done);
+      console.log(isAnyDone);
+      console.log(isAllDone);
+
+
       if(tasks.length !== 0) {
         doneButtonsHtml = `
-        <button>Ukryj Ukończone</button>
-        <button>Ukończ Wszystkie</button>`
+        <button class = "js-hideButton container__hideButton"${isAnyDone ? "" : "disabled"}>Ukryj Ukończone</button>
+        <button class = "js-doneAllButton container__doneAllButton"${isAllDone ? "disabled" : ""}>Ukończ Wszystkie</button>`
       };
 
       document.querySelector(".js-doneButtons").innerHTML = doneButtonsHtml;
