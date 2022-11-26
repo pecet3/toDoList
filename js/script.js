@@ -95,7 +95,7 @@
         Ukończ Wszystkie</button>`
         };
 
-        document.querySelector(".js-doneButtons").innerHTML = doneButtonsHtml;
+        document.querySelector(".js-renderButtons").innerHTML = doneButtonsHtml;
 
     };
 
