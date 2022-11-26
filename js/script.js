@@ -48,7 +48,7 @@
         for (const task of tasks) {
             htmlString += `
             <li 
-            class="list__element">
+            class="list__element ${hideDoneTasks ? "list__element--hidden": ""} ">
                 <button class = "js-done button list__button list__button--toggleDone">
                 ${task.done ? "✔" : ""}
                 </button>
@@ -104,7 +104,7 @@
 
         if (markAsDoneAllTasksButton) {
             markAsDoneAllTasksButton.addEventListener("click", markAllTasksAsDone);
-        }
+        };
 
     };
 
@@ -117,10 +117,11 @@
         const hideDoneTasksButton = document.querySelector(".js-hideDoneTasksButton");
         if (hideDoneTasksButton) {
             hideDoneTasksButton.addEventListener("click", toggleHideDoneTasks);
-        }
+        };
     };
+
     const toggleHideDoneTasks = () => {
-        hideDoneTasks = !hideDoneTasks
+        hideDoneTasks = !hideDoneTasks;
         console.log(hideDoneTasks);
         render();
     };
