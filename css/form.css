@@ -15,13 +15,13 @@
     font-weight: 200;
     border:none;
     padding:10px;
-    transition: 1s;
+    transition: .5s;
 }
 
 .form__button:hover{
     cursor:pointer;
     background-color: hsl(180, 100%, 20%);
-    transform: scale(1.1);
+    transform: scale(1.06);
 }
 
 @media (max-width: 767px){
