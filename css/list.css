@@ -30,7 +30,7 @@
     border: none;
     padding:0px;
     font-size: 20px;
-    transition: 1s;
+    transition: .5s;
 }
 .list__button--toggleDone{
     background-color: hsl(120, 96%, 30%);
@@ -44,7 +44,7 @@
     
 }
 .list__button--toggleDone:active{
-    background-color: hsl(120, 96%, 40%);
+    background-color: hsl(120, 96%, 50%);
 }
 
 .list__button--remove{
@@ -53,10 +53,10 @@
 }
 
 .list__button--remove:hover{
-    background-color: hsl(0, 71%, 65%);
+    background-color: hsl(0, 71%, 38%);
     cursor: pointer;
 }
 
 .list__button--remove:active{
-    background-color: hsl(0, 71%, 65%);
+    background-color: hsl(0, 71%, 30%);
 }
