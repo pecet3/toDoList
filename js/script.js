@@ -1,5 +1,5 @@
 {
-    const bindEvents = () => {
+    const bindEventsRemove = () => {
 
         const removeButtons = document.querySelectorAll(".js-remove");
         removeButtons.forEach((removeButton, index) => {
@@ -8,6 +8,9 @@
             });
         });
 
+    };
+
+    const bindEventsToggle = () => {
         const toggleDoneButtons = document.querySelectorAll(".js-done");
 
         toggleDoneButtons.forEach((toggleDoneButton, index) => {
@@ -16,19 +19,31 @@
             });
         });
     };
+
     const removeTask = (taskIndex) => {
-        tasks.splice(taskIndex, 1);
+        tasks =[
+            ...tasks.slice(0,taskIndex),
+            ...tasks.slice(taskIndex + 1)
+        ];
         render();
     };
 
     const toggleTaskDone = (taskIndex) => {
-        tasks[taskIndex].done = !tasks[taskIndex].done;
+
+        tasks=[
+            ...tasks.slice(0,taskIndex),
+            {...tasks[taskIndex], done: !tasks[taskIndex].done, },
+            ...tasks.slice(taskIndex + 1),
+
+        ];
+        // tasks[taskIndex].done = !tasks[taskIndex].done;
         render();
     };
 
-    const tasks = [];
+    let tasks = [];
+    let hiddeDoneButtons = false;
 
-    const render = () => {
+    const renderTasks = () => {
         let htmlString = "";
 
         for (const task of tasks) {
@@ -49,11 +64,30 @@
             `;
         }
         document.querySelector(".js-tasks").innerHTML = htmlString;
-
-        bindEvents();
-
-
     };
+    const resetInputField = (inputContent) => {
+        inputContent.value = "";
+    };
+
+    const focusOnInputField = (inputContent) => {
+        inputContent.focus();
+    };
+
+    const addNewTask = (newTaskContent) => {
+        tasks=[
+            ...tasks,
+            {content: newTaskContent,}
+        ];
+        render();
+    };
+ 
+    const render = () => {
+        renderTasks();
+        bindEventsRemove();
+        bindEventsToggle();
+    };
+
+
     const onFormSubmit = (event) => {
         event.preventDefault();
         const newTaskContent = document.querySelector(".js-newTask").value.trim();
@@ -65,21 +99,6 @@
         focusOnInputField(inputContent);
     };
 
-    const resetInputField = (inputContent) => {
-        inputContent.value = "";
-    };
-
-    const focusOnInputField = (inputContent) => {
-        inputContent.focus();
-    };
-
-    const addNewTask = (newTaskContent) => {
-        tasks.push({
-            content: newTaskContent,
-            done: false,
-        });
-        render();
-    };
 
     const init = () => {
         render();
