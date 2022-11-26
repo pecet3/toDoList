@@ -20,6 +20,10 @@
     grid-gap:10px;
 }
 
+.list__element--hidden{
+    display:none;
+}
+
 .list__button{
     width: 30px;
     height: 30px;
