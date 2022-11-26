@@ -21,8 +21,8 @@
     };
 
     const removeTask = (taskIndex) => {
-        tasks =[
-            ...tasks.slice(0,taskIndex),
+        tasks = [
+            ...tasks.slice(0, taskIndex),
             ...tasks.slice(taskIndex + 1)
         ];
         render();
@@ -30,18 +30,17 @@
 
     const toggleTaskDone = (taskIndex) => {
 
-        tasks=[
-            ...tasks.slice(0,taskIndex),
-            {...tasks[taskIndex], done: !tasks[taskIndex].done, },
+        tasks = [
+            ...tasks.slice(0, taskIndex),
+            { ...tasks[taskIndex], done: !tasks[taskIndex].done, },
             ...tasks.slice(taskIndex + 1),
 
         ];
-        // tasks[taskIndex].done = !tasks[taskIndex].done;
         render();
     };
 
     let tasks = [];
-    let hiddeDoneButtons = false;
+    let hideDoneTasks = false;
 
     const renderTasks = () => {
         let htmlString = "";
@@ -74,17 +73,53 @@
     };
 
     const addNewTask = (newTaskContent) => {
-        tasks=[
+        tasks = [
             ...tasks,
-            {content: newTaskContent,}
+            { content: newTaskContent, }
         ];
         render();
     };
- 
+    const renderButtons = () => {
+        let renderButtonsHtml = "";
+        let isAnyDone = tasks.some(({ done }) => done);
+        let isAllDone = tasks.every(({ done }) => done);
+
+        if (tasks.length !== 0) {
+            renderButtonsHtml = `
+        <button class = "js-hideAllDoneTasksButton container__hideButton"
+        ${isAnyDone ? "" : "disabled"}>
+        ${hideDoneTasks ? "Pokaż" : "Ukryj"} 
+        Ukończone</button>
+        <button class = "js-doneAllButton container__doneAllButton"
+        ${isAllDone ? "disabled" : ""}>
+        Ukończ Wszystkie</button>`
+        };
+
+        document.querySelector(".js-renderButtons").innerHTML = renderButtonsHtml;
+
+    };
+
+    const bindEventsDoneAllButton = () => {
+        const allDoneButton = document.querySelector(".js-doneAllButton");
+
+        if (allDoneButton) {
+            allDoneButton.addEventListener("click", markAllTasksAsDone);
+        }
+
+    };
+
+    const markAllTasksAsDone = (event) => {
+        event.preventDefault();
+        tasks = [...tasks.map(task => ({...task, done:true,}))];
+        render();
+    };
+
     const render = () => {
+        renderButtons();
         renderTasks();
         bindEventsRemove();
         bindEventsToggle();
+        bindEventsDoneAllButton();
     };
 
 
