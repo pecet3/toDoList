@@ -49,3 +49,7 @@
     background-color: white;
     color: rgb(1, 88, 88);
 }
+
+.container__button:disabled{
+    color:hsl(180, 48%, 57%);
+}
