@@ -38,7 +38,7 @@
     };
 
     const renderTasks = () => {
-       const taskToHtml = task =>`
+        const taskToHtml = task => `
             <li 
             class="list__element ${task.done && hideDoneTasks ? "list__element--hidden" : ""} ">
                 <button class = "js-done button list__button list__button--toggleDone">
@@ -79,7 +79,8 @@
         let isAllDone = tasks.every(({ done }) => done);
         if (tasks.length !== 0) {
             renderButtonsHtml = `
-        <button class = "js-hideDoneTasksButton container__button"
+        <button 
+        class = "js-hideDoneTasksButton container__button"
         ${isAnyDone ? "" : "disabled"}>
         ${hideDoneTasks ? "Pokaż" : "Ukryj"} 
         Ukończone</button>
@@ -92,23 +93,21 @@
 
     };
 
-    const bindEventsMarkAllTasksDone = () => {
+    const bindEventsButtons = () => {
         const markAsDoneAllTasksButton = document.querySelector(".js-doneAllButton");
+        const hideDoneTasksButton = document.querySelector(".js-hideDoneTasksButton");
+
         if (markAsDoneAllTasksButton) {
             markAsDoneAllTasksButton.addEventListener("click", markAllTasksDone);
+        };
+        if (hideDoneTasksButton) {
+            hideDoneTasksButton.addEventListener("click", toggleHideDoneTasks);
         };
     };
 
     const markAllTasksDone = () => {
         tasks = [...tasks.map(task => ({ ...task, done: true, }))];
         render();
-    };
-
-    const bindEventsHideDoneTasks = () => {
-        const hideDoneTasksButton = document.querySelector(".js-hideDoneTasksButton");
-        if (hideDoneTasksButton) {
-            hideDoneTasksButton.addEventListener("click", toggleHideDoneTasks);
-        };
     };
 
     const toggleHideDoneTasks = () => {
@@ -119,10 +118,10 @@
     const render = () => {
         renderButtons();
         renderTasks();
+        
         bindEventsRemove();
         bindEventsToggle();
-        bindEventsMarkAllTasksDone();
-        bindEventsHideDoneTasks();
+        bindEventsButtons();
     };
 
     const onFormSubmit = (event) => {
