@@ -1,18 +1,18 @@
 {
-    const bindEventsRemove = () => {
+    let tasks = [];
+    let hideDoneTasks = false;
 
+    const bindEventsRemove = () => {
         const removeButtons = document.querySelectorAll(".js-remove");
         removeButtons.forEach((removeButton, index) => {
             removeButton.addEventListener("click", () => {
                 removeTask(index);
             });
         });
-
     };
 
     const bindEventsToggle = () => {
         const toggleDoneButtons = document.querySelectorAll(".js-done");
-
         toggleDoneButtons.forEach((toggleDoneButton, index) => {
             toggleDoneButton.addEventListener("click", () => {
                 toggleTaskDone(index);
@@ -29,26 +29,20 @@
     };
 
     const toggleTaskDone = (taskIndex) => {
-
         tasks = [
             ...tasks.slice(0, taskIndex),
             { ...tasks[taskIndex], done: !tasks[taskIndex].done, },
             ...tasks.slice(taskIndex + 1),
-
         ];
         render();
     };
 
-    let tasks = [];
-    let hideDoneTasks = false;
-
     const renderTasks = () => {
         let htmlString = "";
-
         for (const task of tasks) {
             htmlString += `
             <li 
-            class="list__element ${task.done && hideDoneTasks ? "list__element--hidden": ""} ">
+            class="list__element ${task.done && hideDoneTasks ? "list__element--hidden" : ""} ">
                 <button class = "js-done button list__button list__button--toggleDone">
                 ${task.done ? "✔" : ""}
                 </button>
@@ -79,50 +73,47 @@
         ];
         render();
     };
+
     const renderButtons = () => {
         let renderButtonsHtml = "";
         let isAnyDone = tasks.some(({ done }) => done);
         let isAllDone = tasks.every(({ done }) => done);
-
         if (tasks.length !== 0) {
             renderButtonsHtml = `
-        <button class = "js-hideDoneTasksButton container__hideButton"
+        <button class = "js-hideDoneTasksButton container__button"
         ${isAnyDone ? "" : "disabled"}>
         ${hideDoneTasks ? "Pokaż" : "Ukryj"} 
         Ukończone</button>
-        <button class = "js-doneAllButton container__doneAllButton"
+        
+        <button class = "js-doneAllButton container__button"
         ${isAllDone ? "disabled" : ""}>
         Ukończ Wszystkie</button>`
         };
-
         document.querySelector(".js-renderButtons").innerHTML = renderButtonsHtml;
 
     };
 
     const bindEventsDoneAllButton = () => {
         const markAsDoneAllTasksButton = document.querySelector(".js-doneAllButton");
-
         if (markAsDoneAllTasksButton) {
-            markAsDoneAllTasksButton.addEventListener("click", markAllTasksAsDone);
+            markAsDoneAllTasksButton.addEventListener("click", clickMarkAllTasksAsDone);
         };
-
     };
 
-    const markAllTasksAsDone = () => {
-        tasks = [...tasks.map(task => ({...task, done:true,}))];
+    const clickMarkAllTasksAsDone = () => {
+        tasks = [...tasks.map(task => ({ ...task, done: true, }))];
         render();
     };
 
     const bindEventsHideDoneTasksButton = () => {
         const hideDoneTasksButton = document.querySelector(".js-hideDoneTasksButton");
         if (hideDoneTasksButton) {
-            hideDoneTasksButton.addEventListener("click", toggleHideDoneTasks);
+            hideDoneTasksButton.addEventListener("click", clickToggleHideDoneTasks);
         };
     };
 
-    const toggleHideDoneTasks = () => {
+    const clickToggleHideDoneTasks = () => {
         hideDoneTasks = !hideDoneTasks;
-        console.log(hideDoneTasks);
         render();
     };
 
@@ -135,7 +126,6 @@
         bindEventsHideDoneTasksButton();
     };
 
-
     const onFormSubmit = (event) => {
         event.preventDefault();
         const newTaskContent = document.querySelector(".js-newTask").value.trim();
@@ -146,15 +136,10 @@
         }
         focusOnInputField(inputContent);
     };
-
-
     const init = () => {
         render();
         const form = document.querySelector(".js-form");
         form.addEventListener("submit", onFormSubmit);
     };
-
-
     init();
-
 }
