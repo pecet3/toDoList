@@ -1,5 +1,5 @@
 # toDoList
-Hello, this simple toDoList is nothing unique. I made it for study purposes only. The list targets to polish users.
+Hello, this simple toDoList is nothing unique. I made it during frontend course. The app targets to polish users.
 ## Demo
 https://pecet3.github.io/toDoList/
 ## technologies I used:
